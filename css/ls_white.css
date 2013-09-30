@@ -1,0 +1,476 @@
+/* ======================================================================
+ * This file is part of TelSurvey.
+ * Copyright © 2012 Université du Maine
+ *
+ *    TelSurvey is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    TelSurvey is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with TelSurvey (see COPYING).  If not, see <http://www.gnu.org/licenses/>. 
+*/
+
+.vlbg {	/* couleur de base bg light */
+	background : #EEEEEE;
+}
+.lbg {	/* couleur de base bg light */
+	background : #EEEEEE;
+}
+.nbg {	/* couleur de base bg */
+	background : #CCCCCC;
+}
+.dbg {	/* couleur de base bg dark */
+	background : #AAAAAA;
+}
+
+.bgprogress {	/* couleur de base bg light */
+	background : #EEEEEE;
+	background : -moz-linear-gradient(-60deg,#EEEEEE,white);
+	background : -webkit-gradient(linear, center top, center bottom, from(#EEEEEE), to(white));
+	background : -o-linear-gradient(top,#EEEEEE,white);
+}
+.lbgprogress {	/* couleur de base bg light */
+	background : #EEEEEE;
+	background : -moz-linear-gradient(-60deg,#EEEEEE,white);
+	background : -webkit-gradient(linear, center top, center bottom, from(#EEEEEE), to(white));
+	background : -o-linear-gradient(top,#EEEEEE,white);
+}
+.nbg31 {	/* couleur triad bg */
+	background : #FFFF80;
+}
+.lbg31 {	/* couleur triad bg light */
+	background : #FFFAC0;
+}
+.ncol {	/* couleur de base txt */
+	color : #CCCCCC;
+}
+.lcol {	/* couleur de base txt light */
+	color : #EEEEEE;
+}
+.dcol {	/* couleur de base txt dark */
+	color : #111111;
+}
+.ncol31 {	/* couleur triad txt */
+	color : #FFFF80;
+}
+.lcol31 {	/* couleur triad txt light */
+	color : #FFFAC0;
+}
+.dcol31 {	/* couleur triad txt light */
+	color : #FFFF80;
+}
+.colfff {	/* couleur triad txt light */
+	color : white;
+}
+.col000 {	/* couleur triad txt light */
+	color : black;
+}
+
+
+.t{
+	vertical-align :top;
+}
+.m{
+	vertical-align :middle;
+}
+.b{
+	vertical-align :bottom;
+}
+.l{
+	text-align: left;
+	margin-left: 0px;
+	margin-right: auto;
+}
+.c{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.r{
+	text-align: right;
+	margin-left: auto;
+	margin-right: 0px;
+}
+.usf{	/* for <br> in tab */
+	font: 4px  sans-serif, Arial,Verdana, Helvetica;
+}
+.vsf{
+	font: 9px  sans-serif, Arial,Verdana, Helvetica;
+}
+.sf{
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+}
+.nf{
+	font: 11px  sans-serif, Arial,Verdana, Helvetica;
+}
+.bf{	/* big font */
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+}
+.vbf{	/* very big font */
+	font: 14px	sans-serif, Arial,Verdana, Helvetica;
+}
+.mbf{	/* maxi very big font */
+	font: 16px  sans-serif, Arial,Verdana, Helvetica;
+}
+.maxf{	/* maxi very big font */
+	font: 18px  sans-serif, Arial,Verdana, Helvetica;
+}
+.gf{	/* font gras */
+	font-weight: bold;
+}
+
+
+body{
+	
+	background-repeat :no-repeat;
+/*
+	background : #EEEEEE;
+	background : -moz-linear-gradient(white,#EEEEEE,white);
+*/
+	font: 11px Arial,Verdana,sans-serif;
+	text-align: center;
+	overflow:auto;
+	margin:5px
+}
+div{
+	background: transparent;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align:middle;
+}
+table{
+	border: 0px solid;
+	vertical-align : middle;
+	background: transparent;
+	border-collapse: collapse;
+	font: 12px Verdana,sans-serif;
+	margin:0px;
+}
+tr{
+	vertical-align:middle;
+}
+td{
+	background: transparent;
+	border: 0px solid;
+	text-align: center;
+	vertical-align:top;
+}
+
+tr.effect{
+	background: transparent;
+	border: 0px solid;
+}
+tr.effect:hover{
+	background: #FFFAC0;
+	border: 0px solid;
+}
+
+.bdrnbg31 {
+	border: 1px solid #FFFF80;
+}
+.nbdr31 {
+	border: 1px solid #FFFF80;
+}
+.arr6{
+	border-radius: 6px;
+/*
+	padding:2px 2px;
+*/
+}
+.arr8{
+	border-radius: 8px;
+	padding:2px 2px;
+}
+.arr10{
+	border-radius:	10px;
+	padding:2px 2px;
+}
+
+div.popup{
+	cursor:pointer;
+	display: none;
+	position: absolute;
+	top: 300px;
+	left: 500px;
+	overflow:auto;
+	border-radius:	8px;
+	border: 2px solid #047;
+	background: #EEE;
+	vertical-align :middle;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding:50px;
+	z-index:50;
+}
+
+div.dvpby {
+	width:98%;
+	text-align:right;
+	font-size:xx-small;
+	bottom:0px;
+	position:absolute;
+	color:aaa;'
+}
+div.dvpby > a {
+	text-decoration : none;
+	color:aaa;'
+}
+
+input[type=text]{
+	font: 12px Arial,Verdana,sans-serif;
+    box-shadow: 0px 0px 1px #AAAAAA;  
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color : #EFEFEF;
+    background:-moz-linear-gradient(-45deg,#EFEFEF,white);
+	background : -webkit-gradient(linear, center top, center bottom, from(#EFEFEF), to(white));
+	background : -o-linear-gradient(-45deg,#EFEFEF,white);
+}
+
+input[type=radio], input[type=checkbox]{
+	font: 12px Arial,Verdana,sans-serif;
+	vertical-align:middle;
+}
+
+input[type=button]{
+	cursor:pointer;
+	text-align: center;
+	font-family: Arial,Verdana,sans-serif;
+	border-radius: 8px;
+}
+
+div.stat{
+	background : #CCCCCC;
+	background : -moz-linear-gradient(-60deg,#CCCCCC,white);
+	background : -webkit-gradient(linear, center top, center bottom, from(#CCCCCC), to(white));
+	background : -o-linear-gradient(top,#CCCCCC,white);
+	border: 2px solid #AAAAAA;
+	display:none;
+	position: absolute;
+	right: 10px;
+	text-align: left;
+	top: 10%;
+	z-index:50;
+	border-radius: 8px;
+	padding:5px;
+}
+div.stat2{
+	background : #EEEEEE;
+	background : -moz-linear-gradient(-60deg,#EEEEEE,white);
+	background : -webkit-gradient(linear, center top, center bottom, from(#EEEEEE), to(white));
+	background : -o-linear-gradient(top,#EEEEEE,white);
+	background : #CCCCCC;
+	background : -moz-linear-gradient(-60deg,#CCCCCC,white);
+	background : -webkit-gradient(linear, center top, center bottom, from(#CCCCCC), to(white));
+	background : -o-linear-gradient(top,#CCCCCC,white);
+	border: 2px solid #AAAAAA;
+	display:none;
+	left: 250px;
+	position: absolute;
+	text-align: left;
+	top: 10%;
+	z-index:50;
+	border-radius: 8px;
+	padding:5px;
+}	
+
+/*------- menu */
+div.menu{
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	height: 15px;
+	padding: 2px 0px 0px 0px; /*top right bottom left*/
+	z-index: 100;
+	text-align: left;
+	cursor: pointer;
+	border: 0px solid #655;
+	color: #000;
+	font-size : medium;
+	font-weight : bold;
+	font-family: Verdana,sans-serif;
+	border-radius: 8px;
+}
+div.menuscd{
+	background-color: #CCCCCC;
+	background: -moz-linear-gradient(-45deg,#CCCCCC,white);
+	background : -webkit-gradient(linear, left top, right bottom, from(#CCCCCC), to(white));
+	background : -o-linear-gradient(-45deg,#CCCCCC,white);
+	
+	border: 2px solid #AAAAAA;
+	text-align: left;
+	z-index:50;
+	border-radius: 8px;
+}
+tr.menu:hover{
+	background-color:  #FFFAC0;
+}
+td.menu{
+	background-color: transparent;
+	height: 20px;
+	text-align: left;
+	 font: 12px Verdana,sans-serif;
+	color:#ffefc1;
+}
+td.menu:hover{
+	color:#AAAAAA;
+}
+
+
+div.rubFirst{
+	border: 1px solid #FFFF80;
+	border-radius: 6px;
+/*
+	padding:2px 2px;
+*/
+}
+table.rubFirst{
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+	color : #AAAAAA;
+	width:100%;
+}
+td.rubFirstForV{
+	background : #CCCCCC;
+	border-radius: 6px;
+	color : #FFFF80;
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	padding-bottom:10px;
+	padding-left:0px;
+	vertical-align :bottom;
+	width:22px;
+}
+div.titrerubrotv{
+	opacity:0.7;
+	text-shadow: 3px 3px 1px #AAAAAA;
+	width:20px;
+	white-space:nowrap;
+    -moz-transform:rotate(270deg);
+    -webkit-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    transform:rotate(270deg);
+}
+
+div.rubFirst2{
+	border: 1px solid #FFFF80;
+	border-radius: 6px;
+	background: white;
+}
+
+div.rubFirstH{
+	border: 1px solid #EEEEEE;
+	margin-bottom:3px;
+	border-radius: 6px;
+}
+td.rubFirst{
+	border: 1px solid #AAAAAA;
+	background : #CCCCCC;
+	background : -moz-linear-gradient(90deg,#EEEEEE,#CCCCCC,#EEEEEE);
+	color : #FFFF80;
+	font-weight: bold;
+	border-radius: 6px;
+}
+div.titrerub{
+	opacity:0.8;
+	text-shadow: 1px 1px 2px #AAAAAA;
+	white-space:nowrap;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 6px;
+}
+
+/*------- liste candidats */
+tr.cdt{
+	cursor: pointer;
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+}
+
+tr.border{
+	border: 1px solid #DDD;
+}
+div.title{
+	background : #CCCCCC;
+	font: 14px  sans-serif, Arial,Verdana, Helvetica;
+	text-align: center;
+	color : #FFFF80;
+	color : white;
+}
+/*------- fiche candidat */
+div.rub{
+	border: 1px solid #EEEEEE;
+	background: white;
+	border-radius: 10px;
+	width:100%;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+td.titrerubcdt{
+	color :  #AAAAAA;
+	text-align: right;
+	 font: 14px sans-serif,Verdana;
+	font-weight: bold;
+	vertical-align:middle;
+}
+input[type=button].raz{
+	background: #fff;
+	border: 1px solid #8585d0;
+	color:#6e6ecb;
+	font-size:10px;
+	font-weight:bold;
+	padding:2px 5px;
+}
+input[type=button].raz:hover{
+	background: #6e6ecb;
+	color:#ffefc1;
+}
+td.raz{
+	text-align: left;
+	vertical-align:middle;
+}
+td.reload{
+	text-align: left;
+	vertical-align:middle;
+}
+
+/*------- Bouton action fiche candidat */
+input[type=button].action{
+	background: #CCCCCC;
+	border: 2px solid #FFFAC0;
+	color : #FFFAC0;
+	font-size:12px;
+	font-weight:bold;
+	padding:2px 5px;
+}
+input[type=button].action:hover{
+	background: #AAAAAA;
+	border: 2px solid #CCCCCC;
+	color : #FFFF80;
+}
+input[type=button].alert{
+	background:  #FFFF80;
+	border: 2px solid #CCCCCC;
+	color: #CCCCCC;
+	font-size:12px;
+	font-weight : bold;
+	padding:2px 5px;
+}
+input[type=button].alert:hover{
+	background:  #FFFF00;
+	border: 2px solid #AAAAAA;
+	font-weight : bold;
+	color: #AAAAAA;
+}
+img{
+	cursor:pointer;
+}
+

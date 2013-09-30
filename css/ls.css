@@ -1,0 +1,560 @@
+/* ======================================================================
+ * This file is part of TelSurvey.
+ * Copyright © 2012 Université du Maine
+ *    TelSurvey is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    TelSurvey is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with TelSurvey (see COPYING).  If not, see <http://www.gnu.org/licenses/>. 
+*/
+
+.vlbg {	/* couleur de base bg light */
+	background : #DADAF7;
+}
+.lbg {	/* couleur de base bg light */
+	background : #BCBCEE;
+}
+.nbg {	/* couleur de base bg */
+	background : #8888DD;
+}
+.dbg {	/* couleur de base bg dark */
+	background : #2C2C90;
+}
+
+.bgprogress {	/* couleur de base bg light */
+	background-color : #BCBCEE;
+	background : -moz-linear-gradient(-60deg,#BCBCEE,white);
+	background : -webkit-linear-gradient(-60deg,#BCBCEE,white);
+	background : -o-linear-gradient(-60deg,#BCBCEE,white);
+}
+.lbgprogress {	/* couleur de base bg light */
+	background-color : #DADAF7;
+	background : -moz-linear-gradient(-60deg,#DADAF7,white);
+	background : -webkit-linear-gradient(-60deg,#DADAF7,white);
+	background : -o-linear-gradient(-60deg,#DADAF7,white);
+}
+.nbg31 {	/* couleur triad bg */
+	background : #FFF58C;
+}
+.lbg31 {	/* couleur triad bg light */
+	background : #FFFAC0;
+}
+.ncol {	/* couleur de base txt */
+	color : #8888DD;
+}
+.lcol {	/* couleur de base txt light */
+	color : #BCBCEE;
+}
+.dcol {	/* couleur de base txt dark */
+	color : #2C2C90;
+}
+.ncol31 {	/* couleur triad txt */
+	color : #FFF58C;
+}
+.lcol31 {	/* couleur triad txt light */
+	color : #FFFAC0;
+}
+.dcol31 {	/* couleur triad txt light */
+	color : #FFCD8C;
+}
+.colfff {	/* couleur triad txt light */
+	color : white;
+}
+.col000 {	/* couleur triad txt light */
+	color : black;
+}
+
+
+.t{
+	vertical-align :top;
+}
+.m{
+	vertical-align :middle;
+}
+.b{
+	vertical-align :bottom;
+}
+.l{
+	text-align: left;
+	margin-left: 0px;
+	margin-right: auto;
+}
+.c{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.r{
+	text-align: right;
+	margin-left: auto;
+	margin-right: 0px;
+}
+.usf{	/* for <br> in tab */
+	font: 4px  sans-serif, Arial,Verdana, Helvetica;
+}
+.vsf{
+	font: 9px  sans-serif, Arial,Verdana, Helvetica;
+}
+.sf{
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+}
+.nf{
+	font: 11px  sans-serif, Arial,Verdana, Helvetica;
+}
+.bf{	/* big font */
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+}
+.vbf{	/* very big font */
+	font: 14px	sans-serif, Arial,Verdana, Helvetica;
+}
+.mbf{	/* maxi very big font */
+	font: 16px  sans-serif, Arial,Verdana, Helvetica;
+}
+.maxf{	/* maxi very big font */
+	font: 18px  sans-serif, Arial,Verdana, Helvetica;
+}
+.gf{	/* font gras */
+	font-weight: bold;
+}
+
+
+body{
+	
+	background-repeat :no-repeat;
+/*
+	background : #BCBCEE;
+	background : -moz-linear-gradient(white,#BCBCEE,white);
+*/
+	font: 11px Arial,Verdana,sans-serif;
+	text-align: center;
+	overflow:auto;
+	margin:5px
+}
+div{
+	background: transparent;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align:middle;
+}
+table{
+	border: 0px solid;
+	vertical-align : middle;
+	background: transparent;
+	border-collapse: collapse;
+	font: 12px Verdana,sans-serif;
+	margin:0px;
+}
+tr{
+	vertical-align:middle;
+}
+td{
+	background: transparent;
+	border: 0px solid;
+	text-align: center;
+	vertical-align:top;
+}
+
+tr.effect{
+	background: transparent;
+	border: 0px solid;
+}
+tr.effect:hover{
+	background: #FFFAC0;
+	border: 0px solid;
+}
+
+.bdrnbg31 {
+	border: 1px solid #FFF58C;
+}
+.nbdr31 {
+	border: 1px solid #FFF58C;
+}
+.arr6{
+	border-radius: 6px;
+/*
+	padding:2px 2px;
+*/
+}
+.arr8{
+	border-radius: 8px;
+	padding:2px 2px;
+}
+.arr10{
+	border-radius:	10px;
+	padding:2px 2px;
+}
+
+div.popup{
+	cursor:pointer;
+	display: none;
+	position: absolute;
+	top: 300px;
+	left: 500px;
+	overflow:auto;
+	border-radius:	8px;
+	border: 2px solid #047;
+	background: #EEE;
+	vertical-align :middle;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding:50px;
+	z-index:50;
+}
+
+div.dvpby {
+	width:98%;
+	text-align:right;
+	font-size:xx-small;
+	bottom:0px;
+	position:absolute;
+	color:aaa;'
+}
+div.dvpby > a {
+	text-decoration : none;
+	color:aaa;'
+}
+
+input[type=text]{
+	font: 12px Arial,Verdana,sans-serif;
+    box-shadow: 0px 0px 1px #2C2C90;  
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color : #EFEFEF;
+    background:	-moz-linear-gradient(-45deg,#EFEFEF,white);
+	background : -webkit-linear-gradient(-45deg,#EFEFEF,white);
+	background : -o-linear-gradient(-45deg,#EFEFEF,white);
+}
+
+input[type=radio], input[type=checkbox]{
+	font: 12px Arial,Verdana,sans-serif;
+	vertical-align:middle;
+}
+
+input[type=button]{
+	cursor:pointer;
+	text-align: center;
+	font-family: Arial,Verdana,sans-serif;
+	border-radius: 8px;
+}
+
+div.stat{
+	background-color : #DADAF7;
+	background : -moz-linear-gradient(-60deg,#DADAF7,white);
+	background : -webkit-linear-gradient(-60deg,#DADAF7,white);
+	background : -o-linear-gradient(-60deg,#DADAF7,white);
+	border: 2px solid #2C2C90;
+	display:none;
+	position: absolute;
+	right: 10px;
+	text-align: left;
+	top: 10%;
+	z-index:50;
+	border-radius: 8px;
+	padding:5px;
+}
+div.stat2{
+	background-color : #DADAF7;
+	background : -moz-linear-gradient(-60deg,#DADAF7,white);
+	background : -webkit-linear-gradient(-60deg,#DADAF7,white);
+	background : -o-linear-gradient(-60deg,#DADAF7,white);
+	border: 2px solid #2C2C90;
+	display:none;
+	left: 250px;
+	position: absolute;
+	text-align: left;
+	top: 10%;
+	z-index:50;
+	border-radius: 8px;
+	padding:5px;
+}	
+
+/*------- menu */
+div.menu{
+	position: absolute;
+	top: 0px;
+	left: 30px;
+	height: 15px;
+	padding: 2px 0px 0px 0px; /*top right bottom left*/
+	z-index: 100;
+	text-align: left;
+	cursor: pointer;
+	border: 0px solid #655;
+	color: #000;
+	font-size : medium;
+	font-weight : bold;
+	font-family: Verdana,sans-serif;
+	border-radius: 8px;
+}
+div.menuscd{
+	background-color: #8888DD;
+	background: -moz-linear-gradient(-45deg,#8888DD,white);
+	background : -webkit-linear-gradient(-45deg,#8888DD,white);
+	background : -o-linear-gradient(-45deg,#8888DD,white);
+	
+	border: 2px solid #2C2C90;
+	text-align: left;
+	z-index:50;
+	border-radius: 8px;
+}
+tr.menu:hover{
+	background-color:  #FFFAC0;
+}
+td.menu{
+	background-color: transparent;
+	height: 20px;
+	text-align: left;
+	 font: 12px Verdana,sans-serif;
+	color:#ffefc1;
+}
+td.menu:hover{
+	color:#2C2C90;
+}
+
+/*------- tableau list */
+table.nom{
+	border: 1px solid #BCBCEE;
+	background-color : #DADAF7;
+	background : -moz-linear-gradient(top,#DADAF7,white);
+	background : -webkit-linear-gradient(top,#DADAF7,white);
+	background : -o-linear-gradient(top,#DADAF7,white);
+	border-radius: 6px;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+}
+tr.nom{
+	background-color : #8888DD;
+	background : -moz-linear-gradient(top,#8888DD,#BCBCEE,#BCBCEE);
+	background : -webkit-linear-gradient(top,#8888DD,#BCBCEE,#BCBCEE);
+	background : -o-linear-gradient(top,#8888DD,#BCBCEE,#BCBCEE);
+	height:40px;
+}
+tr.nom >td{
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	color : #FFF58C;
+	vertical-align:bottom;
+}
+tr.nomlst{
+	font: 11px  sans-serif, Arial,Verdana, Helvetica;
+	padding:10px;
+}
+tr.nomlst >td{
+	font: 11px  sans-serif, Arial,Verdana, Helvetica;
+	padding: 1px 10px;
+}
+
+div.xadd{
+	background-color : #EEEEEE;
+	background : -moz-linear-gradient(top,#DDDDDD,#EEEEEE);
+	background : -webkit-linear-gradient(top,#DDDDDD,#EEEEEE);
+	background : -o-linear-gradient(top,#DDDDDD,#EEEEEE);
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	color:#88CC88;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	padding:0px 8px;
+	cursor:pointer;
+}
+
+div.xsuppr{
+	background-color : #EEEEEE;
+	background : -moz-linear-gradient(top,#DDDDDD,#EEEEEE);
+	background : -webkit-linear-gradient(top,#DDDDDD,#EEEEEE);
+	background : -o-linear-gradient(top,#DDDDDD,#EEEEEE);
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	color:#CC8888;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	padding:0px 8px;
+	cursor:pointer;
+}
+div.xopen,div.xclose {
+	background-color : #EEEEEE;
+	background : -moz-linear-gradient(top,#DDDDDD,#EEEEEE);
+	background : -webkit-linear-gradient(top,#DDDDDD,#EEEEEE);
+	background : -o-linear-gradient(top,#DDDDDD,#EEEEEE);
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	color:#8888CC;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	padding:0px 8px;
+	cursor:pointer;
+}
+div.xcsv{
+	background-color : #EEEEEE;
+	background : -moz-linear-gradient(top,#EEEEEE,#FFFFFF);
+	background : -webkit-linear-gradient(top,#EEEEEE,#FFFFFF);
+	background : -o-linear-gradient(top,#EEEEEE,#FFFFFF);
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	color:#88CC88;
+	border: 1px solid #88CC88;
+	border-radius: 2px;
+	padding:0px 8px;
+	cursor:pointer;
+}
+
+div.rubFirst{
+	border: 1px solid #FFF58C;
+	border-radius: 6px;
+/*
+	padding:2px 2px;
+*/
+}
+table.rubFirst{
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+	color : #2C2C90;
+	width:100%;
+}
+td.rubFirstForV{
+	background : #8888DD;
+	border-radius: 6px;
+	color : #FFF58C;
+	font: 12px  sans-serif, Arial,Verdana, Helvetica;
+	font-weight: bold;
+	padding-bottom:10px;
+	padding-left:0px;
+	vertical-align :bottom;
+	width:22px;
+}
+div.titrerubrotv{
+	opacity:0.7;
+	text-shadow: 3px 3px 1px #2C2C90;
+	width:20px;
+	white-space:nowrap;
+    -moz-transform:rotate(270deg);
+    -webkit-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    transform:rotate(270deg);
+}
+
+div.rubFirst2{
+	border: 1px solid #FFF58C;
+	border-radius: 6px;
+	background: white;
+}
+
+div.rubFirstH{
+	border: 1px solid #BCBCEE;
+	margin-bottom:3px;
+	border-radius: 6px;
+}
+td.rubFirst{
+	border: 1px solid #2C2C90;
+	background-color : #8888DD;
+	background : -moz-linear-gradient(90deg,#BCBCEE,#8888DD,#BCBCEE);
+	background : -webkit-linear-gradient(90deg,#BCBCEE,#8888DD,#BCBCEE);
+	background : -o-linear-gradient(90deg,#BCBCEE,#8888DD,#BCBCEE);
+	color : #FFF58C;
+	font-weight: bold;
+	border-radius: 6px;
+}
+div.titrerub{
+	opacity:0.8;
+	text-shadow: 1px 1px 2px #2C2C90;
+	white-space:nowrap;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 6px;
+}
+
+/*------- liste candidats */
+tr.cdt{
+	cursor: pointer;
+	font: 10px  sans-serif, Arial,Verdana, Helvetica;
+}
+
+tr.border{
+	border: 1px solid #DDD;
+}
+div.title{
+	background : #8888DD;
+	font: 14px  sans-serif, Arial,Verdana, Helvetica;
+	text-align: center;
+	color : #FFF58C;
+	color : white;
+}
+/*------- fiche candidat */
+div.rub{
+	border: 1px solid #BCBCEE;
+	background: white;
+	border-radius: 10px;
+	width:100%;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+td.titrerubcdt{
+	color :  #2C2C90;
+	text-align: right;
+	 font: 14px sans-serif,Verdana;
+	font-weight: bold;
+	vertical-align:middle;
+}
+input[type=button].raz{
+	background: #fff;
+	border: 1px solid #8585d0;
+	color:#6e6ecb;
+	font-size:10px;
+	font-weight:bold;
+	padding:2px 5px;
+}
+input[type=button].raz:hover{
+	background: #6e6ecb;
+	color:#ffefc1;
+}
+td.raz{
+	text-align: left;
+	vertical-align:middle;
+}
+td.reload{
+	text-align: left;
+	vertical-align:middle;
+}
+
+/*------- Bouton action fiche candidat */
+input[type=button].action{
+	background: #8888DD;
+	border: 2px solid #FFFAC0;
+	color : #FFFAC0;
+	font-size:12px;
+	font-weight:bold;
+	padding:2px 5px;
+}
+input[type=button].action:hover{
+	background: #2C2C90;
+	border: 2px solid #8888DD;
+	color : #FFF58C;
+}
+input[type=button].alert{
+	background:  #FFF58C;
+	border: 2px solid #8888DD;
+	color: #8888DD;
+	font-size:12px;
+	font-weight : bold;
+	padding:2px 5px;
+}
+input[type=button].alert:hover{
+	background:  #FFCD8C;
+	border: 2px solid #2C2C90;
+	font-weight : bold;
+	color: #2C2C90;
+}
+img{
+	cursor:pointer;
+}
+
