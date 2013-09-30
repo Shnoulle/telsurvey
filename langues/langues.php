@@ -311,5 +311,13 @@ $en['pb-']="";
 $fr['pb-']="";
 $en['pb-']="";
 
-
+/* connection */
+$fr['cnx-username']="Nom d'utilisateur";
+$en['cnx-username']="Username";
+$fr['cnx-password']="Mot de passe";
+$en['cnx-password']="Password";
+$fr['cnx-login']="Se connecter";
+$en['cnx-login']="Login";
+$fr['cnx-invalid']="Votre nom d'utilisateur ou votre mot de passe sont invalide";
+$en['cnx-invalid']="Your username or password was invalid";
 ?>

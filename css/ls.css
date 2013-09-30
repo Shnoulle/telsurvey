@@ -558,3 +558,18 @@ img{
 	cursor:pointer;
 }
 
+ul.form{
+width:40em;
+margin:0 auto;
+text-align:left;
+}
+ul.form li{
+list-style-type: none;
+margin-bottom:0.5em;
+}
+.form label{
+display:inline-block;width:19em;
+padding-right:1em;
+text-align:right;
+}
+.error{color:red;}

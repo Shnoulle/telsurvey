@@ -21,6 +21,13 @@
 	
 	$lmsconnect = vconnect($databaselocation, $lmsbaseuser, $lmsbasepass, $lmsbasename);
 	$telconnect = vconnect($databaselocation, $telbaseuser, $telbasepass, $telbasename);
+    if(isset($bInternalUserDb) && $bInternalUserDb){
+        include('connect.php');
+    }elseif (isset($_SERVER["REMOTE_USER"])) {
+	    $uid=$_SERVER["REMOTE_USER"];
+    } elseif (isset($_SERVER["HTTP_CAS_USER"])) {
+	     $uid=$_SERVER["HTTP_CAS_USER"];
+    }
 	$effect="";
 	$title="<div class=title>";
 	$title.="Enquetes";
@@ -213,7 +220,7 @@
 		if ((isset($_POST['confirm']) && $_POST['confirm']=='ok')) {
 			if ($forcode=='1') {
 				$enqpeupler.="<br>";
-				$requete = "insert into `peupler` (`sid` ,`bywho` ,`date`,`etape`) VALUES ('".$_POST['sid']."','".$_SERVER["HTTP_CAS_USER"]."','".date("Y-m-d H:i")."','2');";
+				$requete = "insert into `peupler` (`sid` ,`bywho` ,`date`,`etape`) VALUES ('".$_POST['sid']."','".$uid."','".date("Y-m-d H:i")."','2');";
 				$resultat = extraire ($telconnect, $requete);
 				$enqpeupler.=$requete."<br>";
 				// base du token :

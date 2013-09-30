@@ -159,10 +159,10 @@ function convertLatin1ToHtml($str1) {
 }
 
 function test_domain($mel) {
-	list($ident, $domain) = split( "@", $mel, 2);
+	list($ident, $domain) = explode( "@", $mel);
 	exec( "nslookup -type=MX ".$domain , $resultd);
 	foreach ($resultd as $line) {
-		if(eregi( "^".$domain,$line)) {
+		if(preg_match( "#^".$domain."#i",$line)) {
 			return true;
 			break;
 		}

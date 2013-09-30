@@ -20,7 +20,9 @@
 
 
 include('config.php');
-if (isset($_SERVER["REMOTE_USER"])) {
+if(isset($bInternalUserDb) && $bInternalUserDb){
+    include('connect.php');
+}elseif (isset($_SERVER["REMOTE_USER"])) {
 	$uid=$_SERVER["REMOTE_USER"];
 } elseif (isset($_SERVER["HTTP_CAS_USER"])) {
 	 $uid=$_SERVER["HTTP_CAS_USER"];

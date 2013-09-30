@@ -26,11 +26,16 @@
 	//=============================================
 	// affichage 
 	//=============================================
-	
-	
+    if(isset($bInternalUserDb) && $bInternalUserDb){
+        include('connect.php');
+    }elseif (isset($_SERVER["REMOTE_USER"])) {
+	    $uid=$_SERVER["REMOTE_USER"];
+    } elseif (isset($_SERVER["HTTP_CAS_USER"])) {
+	     $uid=$_SERVER["HTTP_CAS_USER"];
+    }
 if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && isset($_POST['sid']))) {
-	$requete="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = 'L'  WHERE `attribute_50` ='".$_SERVER["HTTP_CAS_USER"]."';";
-	//$requete="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = 'L', `attribute_54` = '' WHERE `attribute_50` ='".$_SERVER["HTTP_CAS_USER"]."';";
+	$requete="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = 'L'  WHERE `attribute_50` ='".$uid."';";
+	//$requete="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = 'L', `attribute_54` = '' WHERE `attribute_50` ='".$uid."';";
 	$resultat = extraire ($lmsconnect, $requete);
 // pour quelle raison completed est vide ???? on corrige 
 	$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `completed` = 'N' WHERE `completed`='';";
@@ -39,16 +44,16 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 	$resultat = extraire ($lmsconnect, $requete1);
 	if (isset($_POST['suivant']) && $_POST['suivant']!='') {
 		// on a cliqué sur "suivant"
-		//$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_54` = '".date('Y-m-d H:i:s:').substr(strrchr(microtime(true), "."), 1)."' WHERE `tid` ='".$_POST['suivant']."' and (`attribute_50` ='".$_SERVER["HTTP_CAS_USER"]."' or `attribute_50` ='L');";
+		//$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_54` = '".date('Y-m-d H:i:s:').substr(strrchr(microtime(true), "."), 1)."' WHERE `tid` ='".$_POST['suivant']."' and (`attribute_50` ='".$uid."' or `attribute_50` ='L');";
 		//
 		// pour que le candidat soit en tete de liste car ordre = vide / 0 /date
 		// on met à vide si pas pris
 		//
-		$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_54` = '',`attribute_50` = '".$_SERVER["HTTP_CAS_USER"]."' WHERE `tid` ='".$_POST['suivant']."' and (`attribute_50` ='".$_SERVER["HTTP_CAS_USER"]."' or `attribute_50` ='L');";
+		$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_54` = '',`attribute_50` = '".$uid."' WHERE `tid` ='".$_POST['suivant']."' and (`attribute_50` ='".$uid."' or `attribute_50` ='L');";
 		$resultat = extraire ($lmsconnect, $requete1);
 	}
 	if (isset($_POST['tid']) && $_POST['tid']!='') {
-		$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_54` = '',`attribute_50` = '".$_SERVER["HTTP_CAS_USER"]."'  WHERE `tid` ='".$_POST['tid']."' and (`attribute_50` ='".$_SERVER["HTTP_CAS_USER"]."' or `attribute_50` ='L');";
+		$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_54` = '',`attribute_50` = '".$uid."'  WHERE `tid` ='".$_POST['tid']."' and (`attribute_50` ='".$uid."' or `attribute_50` ='L');";
 		$resultat = extraire ($lmsconnect, $requete1);
 	}
 	$requete = "SELECT `etape` FROM `peupler` where `sid`='".$_POST['sid']."';";
@@ -67,7 +72,7 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 	$enqpeupler="";
 	
 	$titretoken=$titre." (".$_POST['sid'].")";
-	$requete = "SELECT * FROM {$dbprefix}tokens_".$_POST['sid']." where  `attribute_50` = '".$_SERVER["HTTP_CAS_USER"]."' or`attribute_50` = 'L' order by `attribute_54` ASC, `attribute_53` ASC, `completed` DESC;";  // recherche du nombre d'exprimé
+	$requete = "SELECT * FROM {$dbprefix}tokens_".$_POST['sid']." where  `attribute_50` = '".$uid."' or`attribute_50` = 'L' order by `attribute_54` ASC, `attribute_53` ASC, `completed` DESC;";  // recherche du nombre d'exprimé
 
 		$resultat = extraire ($lmsconnect, $requete);
 		if ($resultat) {
@@ -116,7 +121,7 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 											if ($rdv['tid'][0]) {
 														for($i=0; $i<count($rdv['tid']); $i++) {
 															$tab_rdv.="<tr class='cdt effect'>";
-																if ($rdv['attribute_50'][$i]!='L' && $rdv['attribute_50'][$i]!=$_SERVER["HTTP_CAS_USER"]) {
+																if ($rdv['attribute_50'][$i]!='L' && $rdv['attribute_50'][$i]!=$uid) {
 																	$tab_rdv.="<td class='l dcol gf' style='background:#eaa;'>";
 																} else  $tab_rdv.="<td class='l dcol gf' style='cursor:pointer;' onclick=\"tel('".$_POST['sid']."','".$rdv['tid'][$i]."');\">";
 																if ($rdv['attribute_105'][$i]==date('G')."h") {
@@ -188,7 +193,7 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 						// on met la derniere viste afin qu'un autre opérateur ne le prenne pas  car attribute_54 est vide
 						//
 						if (isset($tidselect)) {
-							$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = '".$_SERVER["HTTP_CAS_USER"]."', `attribute_54` = '".date('Y-m-d H:i:s:').substr(strrchr(microtime(true), "."), 1)."' WHERE `tid` ='".$tidselect."';";
+							$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = '".$uid."', `attribute_54` = '".date('Y-m-d H:i:s:').substr(strrchr(microtime(true), "."), 1)."' WHERE `tid` ='".$tidselect."';";
 							$resultat = extraire ($lmsconnect, $requete1);
 						}
 
@@ -203,14 +208,14 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 						$cpt_orange='0';
 						for($i=0; $i<count($tokens['tid']); $i++) {
 							$tid=$tokens['tid'][$i];
-							if (isset($_POST['tid']) && $_POST['tid']==$tokens['tid'][$i] && $tokens['attribute_50'][$i]==$_SERVER["HTTP_CAS_USER"]) {
+							if (isset($_POST['tid']) && $_POST['tid']==$tokens['tid'][$i] && $tokens['attribute_50'][$i]==$uid) {
 								$black['index'][$cpt_black]=$tid;
 								$black['img'][$cpt_black]="";
 								//$black['img'][$cpt_black]="eta-appel.png";
 								$cpt_black++;
 								//$tidselect=$i;
-							} elseif (isset($_POST['suivant']) && $_POST['suivant']==$tokens['tid'][$i] && $tokens['attribute_50'][$i]==$_SERVER["HTTP_CAS_USER"]) {
-							//} elseif (isset($_POST['suivant']) && $_POST['suivant']==$tokens['tid'][$i-1] && $tokens['attribute_50'][$i]==$_SERVER["HTTP_CAS_USER"]) {
+							} elseif (isset($_POST['suivant']) && $_POST['suivant']==$tokens['tid'][$i] && $tokens['attribute_50'][$i]==$uid) {
+							//} elseif (isset($_POST['suivant']) && $_POST['suivant']==$tokens['tid'][$i-1] && $tokens['attribute_50'][$i]==$uid) {
 								// c celui en cours normalement après SUIVANT
 								$black['index'][$cpt_black]=$tid;
 								$black['img'][$cpt_black]="";
@@ -230,7 +235,7 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 								$red['index'][$cpt_red]=$tid;
 								$red['img'][$cpt_red]="eta-refus.png";
 								$cpt_red++;
-							} elseif ($tokens['attribute_50'][$i]!='L' && $tokens['attribute_50'][$i]!=$_SERVER["HTTP_CAS_USER"]) {
+							} elseif ($tokens['attribute_50'][$i]!='L' && $tokens['attribute_50'][$i]!=$uid) {
 								// bloqué par une autre opérateur
 								$black['index'][$cpt_black]=$tid;
 								$black['img'][$cpt_black]="used";
@@ -431,7 +436,7 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 								$by_autre_ope.="<tr><td>";
 									$by_autre_ope.="<div id='lstcandeta3' style='overflow:auto;'>";
 										$by_autre_ope.="<table id=tablstcandeta3 class='bf dcol'>";
-											$requete = "SELECT * FROM {$dbprefix}tokens_".$_POST['sid']." where  `attribute_50` != '".$_SERVER["HTTP_CAS_USER"]."' and `attribute_50` != 'L' ;";  // recherche du nombre d'exprimé
+											$requete = "SELECT * FROM {$dbprefix}tokens_".$_POST['sid']." where  `attribute_50` != '".$uid."' and `attribute_50` != 'L' ;";  // recherche du nombre d'exprimé
 											$resultat = extraire ($lmsconnect, $requete);
 											if ($resultat) {
 												$nbcdtpris=intab($resultat);
@@ -468,7 +473,7 @@ if ((isset($_POST['menu']) && !isset($_POST['maj']) && $_POST['menu']=='tel' && 
 							}
 							//print_r($fichecdt);
 						
-							$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = '".$_SERVER["HTTP_CAS_USER"]."', `attribute_54` = '".date('Y-m-d H:i:s:').substr(strrchr(microtime(true), "."), 1)."' WHERE `tid` ='".$tidselect."';";
+							$requete1="UPDATE {$dbprefix}tokens_".$_POST['sid']." SET `attribute_50` = '".$uid."', `attribute_54` = '".date('Y-m-d H:i:s:').substr(strrchr(microtime(true), "."), 1)."' WHERE `tid` ='".$tidselect."';";
 							$resultat = extraire ($lmsconnect, $requete1);
 							$requete="select count(what) from `".$_POST['sid']."_history` where `forid`='".$tidselect."';";
 							$resultat = extraire ($telconnect, $requete);
@@ -952,7 +957,7 @@ if ($forcode) {
 												$enq_mel.="<td class='c m'> : </td>";
 												$enq_mel.="<td class='nf l m'><div class='l' id='domainisvalid'>";
 													if ($fichecdt['email'][0]!='') {
-														list($ident, $domain) = split( "@", $fichecdt['email'][0], 2);
+														list($ident, $domain) = explode( "@", $fichecdt['email'][0]);
 														if (test_domain($fichecdt['email'][0])) {
 															$enq_mel.="<img class='m' src=images/ok.png width='15px'>&nbsp;(".$domain.")";
 														} else {
@@ -1672,7 +1677,7 @@ if ((isset($_POST['menu']) && isset($_POST['maj']) && $_POST['menu']=='tel' && i
 		$requete="INSERT INTO `".$_POST['sid']."_history` (`forid` ,`what` ,`bywho` ,`date`) VALUES (
 			'".$_POST['tid']."',
 			'".$what."',
-			'".$_SERVER["HTTP_CAS_USER"]."',
+			'".$uid."',
 			'".date('Y-m-d H:i:s')."');";
 		$resultat = extraire ($telconnect, $requete);
 		

@@ -19,11 +19,13 @@
 */
 
 	require_once('config.php');
-	if (isset($_SERVER["REMOTE_USER"])) {
-		$uid=$_SERVER["REMOTE_USER"];
-	} elseif (isset($_SERVER["HTTP_CAS_USER"])) {
-		 $uid=$_SERVER["HTTP_CAS_USER"];
-	}
+    if(isset($bInternalUserDb) && $bInternalUserDb){
+        include('connect.php');
+    }elseif (isset($_SERVER["REMOTE_USER"])) {
+	    $uid=$_SERVER["REMOTE_USER"];
+    } elseif (isset($_SERVER["HTTP_CAS_USER"])) {
+	     $uid=$_SERVER["HTTP_CAS_USER"];
+    }
 	if (isset($_POST['menu'])) {
 		if (stristr($_POST['menu'],'publipost')) {include('publipost.php');}
 		elseif (stristr($_POST['menu'],'enqlister')) {include('enq.php');}
@@ -52,7 +54,7 @@
 		include('publipost.php');
 	}
 	if (isset($_POST['test_domain'])) {
-		list($ident, $domain) = split( "@", $_POST['test_domain'], 2);
+		list($ident, $domain) = explode( "@", $_POST['test_domain']);
 		if (test_domain($_POST['test_domain'])) {
 			$Domain="<img class='m' src=images/ok.png width='15px'>&nbsp;(".$domain.")";
 			$isOK="1";

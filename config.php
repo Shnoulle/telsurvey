@@ -33,7 +33,9 @@ $dbprefix='lime_'; 				// prefix of Limesurvey
 $params["host"] = 'smtp.xxx.fr';
 $params["port"] = '25';
 
-$admin=array("admintoto","usertoto");		// listes des utilisateurs qui seront administrateurs du site (uid CAS)
+$bInternalUserDb=true;
+$sSessionName="zzaSaltedString";
+$admin=array("superadmin","usertoto");		// listes des utilisateurs qui seront administrateurs du site (uid CAS)
 
 $lang="fr";
 

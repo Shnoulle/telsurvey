@@ -101,6 +101,23 @@ include('../config.php');
 				} else {
 					$top.="<td class='l' style='color:red;'>erreur : mauvaise base</td></tr>";
 				}
+			if(isset($bInternalUserDb) && $bInternalUserDb){
+				$top.="<tr><td class='l'>Creation table Users dans TelSurvey</td>";
+				exec("mysql -h $databaselocation -D $telbasename -u $telbaseuser --password=$telbasepass <users.sql");
+				$requete="SHOW TABLES from `".$telbasename."`;";
+				$resultat=extraire($telconnect, $requete);
+				$exist=0;
+				while ( $rows=mysql_fetch_array($resultat) ) {
+					if ($rows[0] == 'users') {
+						$exist=1;
+					}
+				}
+				if ($exist) {
+					$top.="<td class='l' style='color:green;'>OK</td></tr>";
+				} else {
+					$top.="<td class='l' style='color:red;'>erreur : mauvaise base</td></tr>";
+				}
+			}
 		}
 	}
 	$top.="</table>";
