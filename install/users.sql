@@ -25,5 +25,5 @@ UNIQUE (
 )
 ) ENGINE = MYISAM  DEFAULT CHARSET=latin1 ;
 
-INSERT INTO `users` (`id`, `username`, `admin`, `password`) VALUES
+INSERT INTO `users` (`id`, `username`, `admin`, `password`,`update`) VALUES
 (1, 'superadmin', 1, '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', '2013-09-30 11:52:34');
