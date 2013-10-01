@@ -1435,8 +1435,11 @@ if ($forcode) {
 											$enqpeupler.="</td>";
 											$enqpeupler.="<td width='195px'>";
 			// faire l'enquete
+												$linkDoEnquete=$rooturlrep;
+												$linkDoEnquete=str_replace ("SID",(int)$_POST['sid'],$linkDoEnquete);
+												$linkDoEnquete=str_replace ("TOKEN",$fichecdt['token'][0],$linkDoEnquete);
 												$enqpeupler.="<input type=button class='action' value='".H(${$lang}['doLS'])." >>' id=btncenq onclick=\"
-													envoieRequete('".$rootlms."/index.php?lang=fr&sid=".$_POST['sid']."&token=".$fichecdt['token'][0]."');
+													envoieRequete('".$linkDoEnquete."');
 													document.getElementById('btnRetourFiche').style.display='';
 													document.getElementById('suivant').style.display='none';
 													document.getElementById('btncenq').style.display='none';
